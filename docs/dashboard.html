@@ -9,10 +9,6 @@
 <body>
     <nav class="navbar">
         <div class="nav-brand">Release Simulator ESA</div>
-        <div class="nav-user">
-            <span id="username-display"></span>
-            <button onclick="logout()" class="btn btn-small">Вийти</button>
-        </div>
     </nav>
 
     <div class="container">
@@ -36,21 +32,14 @@
                 <p>Практичні завдання</p>
                 <a href="practice.html" class="btn">Перейти</a>
             </div>
-            
-            <div class="card" id="admin-card" style="display: none;">
-                <h2>⚙️ Адміністрування</h2>
-                <p>Керування користувачами</p>
-                <a href="admin.html" class="btn">Перейти</a>
-            </div>
         </div>
 
         <div class="stats-section">
-            <h2>Ваша статистика</h2>
+            <h2>Статистика</h2>
             <div id="user-stats"></div>
         </div>
     </div>
 
-    <script src="js/auth.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
 </html>
