@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Теорія - Кіберсимулятор ESA</title>
+    <title>Теорія - Release Simulator ESA</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-brand">Кіберсимулятор ESA</div>
+        <div class="nav-brand">Release Simulator ESA</div>
         <div class="nav-user">
-            <a href="dashboard.html" class="btn btn-small">← Назад</a>
+            <a href="dashboard.html" style="margin-right: 15px; color: #293672; text-decoration: none;">← Назад</a>
+            <span id="username-display"></span>
+            <button onclick="logout()" class="btn btn-small">Вийти</button>
         </div>
     </nav>
 

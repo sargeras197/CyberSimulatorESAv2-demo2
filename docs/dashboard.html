@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Панель управління - Кіберсимулятор ESA</title>
+    <title>Панель управління - Release Simulator ESA</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-brand">Кіберсимулятор ESA</div>
+        <div class="nav-brand">Release Simulator ESA</div>
         <div class="nav-user">
-            <a href="dashboard.html" class="btn btn-small">Головне меню</a>
+            <span id="username-display"></span>
+            <button onclick="logout()" class="btn btn-small">Вийти</button>
         </div>
     </nav>
 
@@ -35,14 +36,21 @@
                 <p>Практичні завдання</p>
                 <a href="practice.html" class="btn">Перейти</a>
             </div>
+            
+            <div class="card" id="admin-card" style="display: none;">
+                <h2>⚙️ Адміністрування</h2>
+                <p>Керування користувачами</p>
+                <a href="admin.html" class="btn">Перейти</a>
+            </div>
         </div>
 
         <div class="stats-section">
-            <h2>Статистика тестування</h2>
+            <h2>Ваша статистика</h2>
             <div id="user-stats"></div>
         </div>
     </div>
 
+    <script src="js/auth.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
 </html>
