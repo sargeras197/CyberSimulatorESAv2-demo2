@@ -42,14 +42,25 @@ function loadUserStats() {
 }
 
 window.clearStats = function() {
+    console.log('clearStats викликана');
+    console.log('Дані до очищення:', localStorage.getItem('testLogs'));
+    
     if (confirm('Ви впевнені, що хочете очистити всю статистику? Цю дію неможливо скасувати.')) {
+        console.log('Користувач підтвердив очищення');
         localStorage.removeItem('testLogs');
+        console.log('Дані після очищення:', localStorage.getItem('testLogs'));
+        
         const statsDiv = document.getElementById('user-stats');
         if (statsDiv) {
-            statsDiv.innerHTML = '<p style="color: #28a745; font-weight: bold;">✓ Статистику успішно очищено!</p>';
+            statsDiv.innerHTML = '<p style="color: #28a745; font-weight: bold; font-size: 18px;">✓ Статистику успішно очищено!</p>';
             setTimeout(() => {
+                console.log('Оновлення статистики...');
                 loadUserStats();
             }, 1500);
+        } else {
+            console.error('Елемент user-stats не знайдено!');
         }
+    } else {
+        console.log('Користувач скасував очищення');
     }
 }
