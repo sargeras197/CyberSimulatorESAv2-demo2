@@ -36,14 +36,6 @@ const PHISHING_EXAMPLES = [
 ];
 
 window.addEventListener('DOMContentLoaded', function() {
-    const user = checkAuth();
-    if (!user) return;
-    
-    const usernameDisplay = document.getElementById('username-display');
-    if (usernameDisplay) {
-        usernameDisplay.textContent = user.username;
-    }
-    
     displayPhishingExamples();
 });
 

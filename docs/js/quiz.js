@@ -2,14 +2,6 @@
 let startTime;
 
 window.addEventListener('DOMContentLoaded', function() {
-    const user = checkAuth();
-    if (!user) return;
-    
-    const usernameDisplay = document.getElementById('username-display');
-    if (usernameDisplay) {
-        usernameDisplay.textContent = user.username;
-    }
-    
     // Відображення питань
     displayQuestions();
     
@@ -103,12 +95,10 @@ function handleSubmit(e) {
 }
 
 function saveTestLog(successes, fails, timeSpent) {
-    const user = getCurrentUser();
     const testLogs = JSON.parse(localStorage.getItem('testLogs') || '[]');
     
     testLogs.push({
         id: testLogs.length + 1,
-        userId: user.id,
         testName: 'quiz',
         timestamp: new Date().toISOString(),
         attempts: 1,
