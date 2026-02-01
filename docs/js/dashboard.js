@@ -42,25 +42,27 @@ function loadUserStats() {
 }
 
 window.clearStats = function() {
-    console.log('clearStats викликана');
-    console.log('Дані до очищення:', localStorage.getItem('testLogs'));
-    
-    if (confirm('Ви впевнені, що хочете очистити всю статистику? Цю дію неможливо скасувати.')) {
-        console.log('Користувач підтвердив очищення');
-        localStorage.removeItem('testLogs');
-        console.log('Дані після очищення:', localStorage.getItem('testLogs'));
+    if (confirm('Ви впевнені, що хочете очистити всю статистику та дані сайту? Це видалить cookies, історію сесій та всі збережені дані. Цю дію неможливо скасувати.')) {
+        // Очищення localStorage
+        localStorage.clear();
         
+        // Очищення sessionStorage
+        sessionStorage.clear();
+        
+        // Очищення всіх cookies
+        document.cookie.split(";").forEach(function(c) { 
+            document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+        });
+        
+        // Показати повідомлення про успіх
         const statsDiv = document.getElementById('user-stats');
         if (statsDiv) {
-            statsDiv.innerHTML = '<p style="color: #28a745; font-weight: bold; font-size: 18px;">✓ Статистику успішно очищено!</p>';
-            setTimeout(() => {
-                console.log('Оновлення статистики...');
-                loadUserStats();
-            }, 1500);
-        } else {
-            console.error('Елемент user-stats не знайдено!');
+            statsDiv.innerHTML = '<p style="color: #28a745; font-weight: bold; font-size: 18px;">✓ Всі дані успішно очищено! Сторінка оновлюється...</p>';
         }
-    } else {
-        console.log('Користувач скасував очищення');
+        
+        // Оновити сторінку через 2 секунди
+        setTimeout(() => {
+            location.reload();
+        }, 2000);
     }
 }
