@@ -41,7 +41,7 @@ function loadUserStats() {
     `;
 }
 
-function clearStats() {
+window.clearStats = function() {
     if (confirm('Ви впевнені, що хочете очистити всю статистику? Цю дію неможливо скасувати.')) {
         localStorage.removeItem('testLogs');
         const statsDiv = document.getElementById('user-stats');
