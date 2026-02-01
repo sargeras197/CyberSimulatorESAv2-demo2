@@ -44,6 +44,12 @@ function loadUserStats() {
 function clearStats() {
     if (confirm('Ви впевнені, що хочете очистити всю статистику? Цю дію неможливо скасувати.')) {
         localStorage.removeItem('testLogs');
-        loadUserStats();
+        const statsDiv = document.getElementById('user-stats');
+        if (statsDiv) {
+            statsDiv.innerHTML = '<p style="color: #28a745; font-weight: bold;">✓ Статистику успішно очищено!</p>';
+            setTimeout(() => {
+                loadUserStats();
+            }, 1500);
+        }
     }
 }
